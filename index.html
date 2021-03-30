@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Weather Dashboard</title>
+    <p id="currentDay"></p>
+  </head>
+
+  <body>
+    <header>
+      <h1> Weather Dashboard</h1>
+    </header>
+    <div class="row">
+    <div class="sidebar col-md-3">
+        <label for="searchBar">Search for a City:</label>
+        <input type="text" id="searchBar" placeholder="City name">
+        <button type="submit" class="btn btn-primary fa fa-search" id="btnMain"></button>
+    </div>
+    <div  class="col-md-9 border">
+        <h2 id="cityname">City Name:</h2>
+        <div class="temperature">temperature:
+          <p id="temperature"></p>
+        </div>
+        <div class="humidity">Humidity:
+          <p id="humidity"></p>
+        </div>
+        <div class="windspeed">Wind Speed:
+          <p id="windspeed"></p>
+        </div>
+        <div class="uvindex">UV Index:
+          <p id="uvindex"></p>
+        </div>
+
+        <h3>5-Day Forecast:</h3>
+        <div class="row">
+            <div class="col-md-2 ml-2 bg-primary rounded">
+                <p id="date1"></p>
+                <p id="temp1"></p>
+                <p id="humidity1"></p>
+            </div>
+            <div class="col-md-2 bg-primary rounded">
+                <p id="date2"></p>
+                <p>Temp:</p>
+                <p id="temp2"></p>
+                <p>Humidity:</p>
+                <p id="humidity2"></p>
+            </div>
+            <div class="col-md-2 bg-primary rounded">
+                <p id="date3"></p>
+                <p id="temp3"></p>
+                <p id="humidity3"></p>
+            </div>
+            <div class="col-md-2 bg-primary rounded">
+                <p id="date4"></p>
+                <p id="temp4"></p>
+                <p id="humidity4"></p>
+            </div>
+            <div class="col-md-2 bg-primary rounded">
+                <p id="date5"></p>
+                <p id="temp5"></p>
+                <p id="humidity5"></p>
+            </div>
+       </div>
+      </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

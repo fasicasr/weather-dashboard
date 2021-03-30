@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #fcfffa;
+}
+
+
+header {
+    background-color: #3f3e3e;
+    color: #ffffff;
+}
+
+header h1 {
+    display: inline-block;
+    font-size: 48px;
+    color:  #f8f4f4;
+    padding-left: 448px;
+    padding-right: 500px;
+}
+
+#searchBar {
+    margin-left: -124px;
+}
+
+#btnMain {
+    margin-top: 1px; 
+    width: 35px;
+} 
+
+.btn {
+    width: 100%;
+} 
+  
+h2 {
+    font-size: 30px;
+}
+
+.sidebar {
+    max-width: 250px;
+}
+
+
+
