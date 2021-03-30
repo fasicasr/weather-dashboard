@@ -44,13 +44,15 @@ $('#btnMain').on('click', function (){
    
 //using ajax to pull data from weather API
 $.ajax({
-    url: "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&APPID=" + APIKey,
+    url: "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=imperial&appid=" + APIKey,
     method: "GET"
   }).done(function(data) {
     console.log(data)
     //pulling temp, humidity, windspeead from weather API using ID assigned in html sheet
     $('#cityname').text(data.name + now)
-    $('#temperature').text(data.main.temp)
+    $('#temperature').text(data.main.temp + ' °F') 
+    let iconId = data.weather[0].icon
+    $('#icon').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
     $('#humidity').text(data.main.humidity)
     $('#windspeed').text(data.wind.speed)
     lat = data.coord.lat
@@ -68,24 +70,33 @@ $.ajax({
 //using data to pull forecast API. Used the 16 day 
   $.ajax({
     url: "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&appid=" + APIKey,
-    //"https://api.openweathermap.org/data/2.5/forecast?id=4744468&appid=" + APIKey,
     context: document.body
   }).done(function(data) {
     console.log(data)
     $('#date1').text(data.list[0].dt_txt)
-    $('#temp1').text(data.list[0].main.temp)
+    $('#temp1').text(data.list[0].main.temp + ' °F') 
+    let iconId = data.list[0].weather[0].icon
+    $('#icon1').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
     $('#humidity1').text(data.list[0].main.humidity)
     $('#date2').text(data.list[8].dt_txt)
-    $('#temp2').text(data.list[8].main.temp)
+    $('#temp2').text(data.list[8].main.temp + ' °F') 
+    iconId = data.list[8].weather[0].icon
+    $('#icon2').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
     $('#humidity2').text(data.list[8].main.humidity)
     $('#date3').text(data.list[16].dt_txt)
-    $('#temp3').text(data.list[16].main.temp)
+    $('#temp3').text(data.list[16].main.temp + ' °F') 
+    iconId = data.list[16].weather[0].icon
+    $('#icon3').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
     $('#humidity3').text(data.list[16].main.humidity)
     $('#date4').text(data.list[24].dt_txt)
-    $('#temp4').text(data.list[24].main.temp)
+    $('#temp4').text(data.list[24].main.temp + ' °F') 
+    iconId = data.list[24].weather[0].icon
+    $('#icon4').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
     $('#humidity4').text(data.list[24].main.humidity)
     $('#date5').text(data.list[32].dt_txt)
-    $('#temp5').text(data.list[32].main.temp)
+    $('#temp5').text(data.list[32].main.temp + ' °F') 
+    iconId = data.list[32].weather[0].icon
+    $('#icon5').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
     $('#humidity5').text(data.list[32].main.humidity)
     
   });
@@ -99,13 +110,15 @@ $('.btn').on('click', function (){
   let cityName = $(this).text();
 //using ajax to pull data from weather API
 $.ajax({
-  url: "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&APPID=" + APIKey,
+  url: "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=imperial&appid=" + APIKey,
   method: "GET"
 }).done(function(data) {
   console.log(data)
   //pulling temp, humidity, windspeead from weather API using ID assigned in html sheet
   $('#cityname').text(data.name + now)
-  $('#temperature').text(data.main.temp)
+  $('#temperature').text(data.main.temp + ' °F') 
+  let iconId = data.weather[0].icon
+  $('#icon').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
   $('#humidity').text(data.main.humidity)
   $('#windspeed').text(data.wind.speed)
   lat = data.coord.lat
@@ -120,29 +133,38 @@ $.ajax({
 
 });
 
-//using data to pull forecast API. Used the 16 day/3hr.
+//using data to pull forecast API. Used the 16 day
 $.ajax({
-  url: "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&appid=" + APIKey,
-  //"https://api.openweathermap.org/data/2.5/forecast?id=4744468&appid=" + APIKey,
+  url: "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&units=imperial&appid=" + APIKey,
   context: document.body
 }).done(function(data) {
   console.log(data)
   $('#date1').text(data.list[0].dt_txt)
-  $('#temp1').text(data.list[0].main.temp)
+  $('#temp1').text(data.list[0].main.temp + ' °F') 
+  let iconId = data.list[0].weather[0].icon
+  $('#icon1').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
   $('#humidity1').text(data.list[0].main.humidity)
   $('#date2').text(data.list[8].dt_txt)
-  $('#temp2').text(data.list[8].main.temp)
+  $('#temp2').text(data.list[8].main.temp + ' °F') 
+  iconId = data.list[8].weather[0].icon
+  $('#icon2').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
   $('#humidity2').text(data.list[8].main.humidity)
   $('#date3').text(data.list[16].dt_txt)
-  $('#temp3').text(data.list[16].main.temp)
+  $('#temp3').text(data.list[16].main.temp + ' °F') 
+  iconId = data.list[16].weather[0].icon
+  $('#icon3').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
   $('#humidity3').text(data.list[16].main.humidity)
   $('#date4').text(data.list[24].dt_txt)
-  $('#temp4').text(data.list[24].main.temp)
+  $('#temp4').text(data.list[24].main.temp + ' °F') 
+  iconId = data.list[24].weather[0].icon
+  $('#icon4').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
   $('#humidity4').text(data.list[24].main.humidity)
   $('#date5').text(data.list[32].dt_txt)
-  $('#temp5').text(data.list[32].main.temp)
+  $('#temp5').text(data.list[32].main.temp + ' °F') 
+  iconId = data.list[32].weather[0].icon
+  $('#icon5').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
   $('#humidity5').text(data.list[32].main.humidity)
-  
+    
 });
 
 })

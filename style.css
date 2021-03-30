@@ -24,7 +24,7 @@ header h1 {
 }
 
 #searchBar {
-    margin-left: -124px;
+    margin-left: 12px;
 }
 
 #btnMain {
@@ -44,5 +44,7 @@ h2 {
     max-width: 250px;
 }
 
-
+.row {
+    font-size: small;
+}
 
