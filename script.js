@@ -1,6 +1,6 @@
 let APIKey="7c75a4557e4d48e6902832770764c3d7"
 let date = new Date();
-let now = moment(date).format('(M/D/YYYY)');
+let now = moment(date).format('(M/D/YYYY)'); //used moment.js to get date
 let lat;
 let lon;
 let cityNumber = 0;
@@ -19,7 +19,7 @@ for (i=0; i < cityList.length; i++){
 // searchBar.addEventListener('click', () => {
 //     cityName = $('#searchBar').value()
 // })
-//gets id searchBar and adds an on-click event 
+//gets id searchBar and adds a click event 
 $('#btnMain').on('click', function (){
     let cityName = $('#searchBar').val()
     let cityList = JSON.parse(localStorage.getItem('cityList')) || []
@@ -48,7 +48,7 @@ $.ajax({
     method: "GET"
   }).done(function(data) {
     console.log(data)
-    //pulling temp, humidity, windspeead from weather API using ID assigned in html sheet
+    //pulling temp, humidity, windspeead from weather API using ID assigned in html and jquery display data
     $('#cityname').text(data.name + now)
     $('#temperature').text(data.main.temp + ' °F') 
     let iconId = data.weather[0].icon
@@ -67,7 +67,7 @@ $.ajax({
 
   });
 
-//using data to pull forecast API. Used the 16 day 
+//Pulling 5 day forecast from api API. Using ID assigned in html and jquery to display data
   $.ajax({
     url: "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&appid=" + APIKey,
     context: document.body
@@ -121,6 +121,7 @@ $.ajax({
   $('#icon').replaceWith ('<img src="https://openweathermap.org/img/wn/'+iconId+'@2x.png" alt=""></img>')
   $('#humidity').text(data.main.humidity)
   $('#windspeed').text(data.wind.speed)
+  //Pulling longitude and latitude from UVI api 
   lat = data.coord.lat
   lon = data.coord.lon
   $.ajax({//uvi api
@@ -133,7 +134,7 @@ $.ajax({
 
 });
 
-//using data to pull forecast API. Used the 16 day
+//using data to pull forecast API. 
 $.ajax({
   url: "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&units=imperial&appid=" + APIKey,
   context: document.body
